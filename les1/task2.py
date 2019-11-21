@@ -11,8 +11,8 @@ while True:
 
     qt_sec = int(t_qt_sec)
     qt_hour = qt_sec // 60 // 60
-    qt_mnts = (qt_sec - qt_hour * 60 * 60) // 60
-    qt_sec -= qt_hour * 60 * 60 + qt_mnts*60
+    qt_mnts = (qt_sec % (60 * 60)) // 60
+    qt_sec %= 60
 
     result = f'{qt_hour}:{qt_mnts}:{qt_sec}'
 
