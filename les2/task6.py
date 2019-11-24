@@ -23,13 +23,14 @@
 }
 """
 
+# создам словарь для корректной обработки вводимых значений
 characteristics = {'название': str, 'цена': float, 'количество': int, 'единица измерения': str}
 
-tovars = []
+tovars = []  # создам пустой список товаров чтобы далее его пополнить
 i = 0
 while True:
-    i += 1
-    tovar = {}
+    i += 1  # в примере нумерация с единицы, поэтому увеличим тут на 1.
+    tovar = {}  # пустой словарик характеристик, чтобы далее в цикле его пололнять.
     for characteristic, its_type in characteristics.items():
         while True:
             try:
@@ -37,7 +38,7 @@ while True:
                 break
             except ValueError as e:
                 print('Ожидается значение другого типа')
-    tovars.append((i, tovar))
+    tovars.append((i, tovar))  # заполнение
 
     retry = input('\nДобавим следующий товар?\n(y/N):')
     if not retry.upper() == 'Y':
@@ -45,15 +46,15 @@ while True:
 
 print(tovars)
 
-analytics = {}
+analytics = {}  # не придумал как красиво создать словарь аналитики из характеристик, кроме как перебором.
 for characteristic in characteristics:
     analytics[characteristic] = []
 
-for tovar in tovars:
-    for characteristic in characteristics:
+for tovar in tovars:  # внутри цикла по кортежам
+    for characteristic in characteristics:  # внутри цикла по характеристикам
         try:
-            analytics[characteristic].index(tovar[1][characteristic])
+            analytics[characteristic].index(tovar[1][characteristic])  # нас не интересует то, что уже проанализировано
         except ValueError as e:
-            analytics[characteristic].append(tovar[1][characteristic])
+            analytics[characteristic].append(tovar[1][characteristic])  # поэтому пополняем в блоке исключения.
 
 print(analytics)

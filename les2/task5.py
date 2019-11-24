@@ -3,7 +3,7 @@
     Если в рейтинге существуют элементы с одинаковыми значениями,
     то новый элемент с тем же значением должен разместиться после них."""
 
-my_list = [7, 5, 3, 3, 2]
+my_list = [7, 5, 3, 3, 2]  # использую из примера
 
 while True:
     i_value = input('Введите новый элемент рейтинга\n')
@@ -13,14 +13,14 @@ while True:
     except ValueError as e:
         print('Ожидается число!')
 
-result_list = []
-added = False
+result_list = []  # пустой результирующий - так проще когда в рейтинге вовсе нет введенного нового значения.
+added = False  # признак модифицированности нужен для исключения добавлений на каждой итерации.
 for val in my_list:
     if not added and i_value > val:
         result_list.append(i_value)
         added = True
     result_list.append(val)
-if not added:
+if not added:  # если добавили то, что ни с чем не сравнилось.
     result_list.append(i_value)
 
 print(result_list)

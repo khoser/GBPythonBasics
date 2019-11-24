@@ -14,7 +14,7 @@ spisok.append((123, ))
 spisok.append({})
 spisok.append({1, 2, 3})
 
-i = 0
+i = 0  # добавил нумерацию влоб, чтобы было покрасивее. В следующем задании использовал enumerate.
 for elem in spisok:
     print(i, ': ', elem, ' is type of ', type(elem))
     i += 1

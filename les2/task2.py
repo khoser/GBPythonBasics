@@ -4,8 +4,9 @@
     Для заполнения списка элементов необходимо использовать функцию input()."""
 
 spisok = list()
+
 while True:
-    num_of_elems = input('Сколько будет элементов?\n')
+    num_of_elems = input('Сколько будет элементов?\n')  # сколько элементов будем обрабатывать?
     try:
         num_of_elems = int(num_of_elems)
         break
@@ -13,7 +14,7 @@ while True:
         print('Ожидается число!')
 
 i = 0
-while i < num_of_elems:
+while i < num_of_elems:  # Заполним значения
     spisok.append(input(f'Введите значение {i}-го элемента списка\n'))
     i += 1
 
@@ -21,7 +22,7 @@ print('Введенный список:\n', spisok)
 
 i = 1
 while i < num_of_elems:
-    spisok[i-1], spisok[i] = spisok[i], spisok[i-1]
-    i += 2
+    spisok[i-1], spisok[i] = spisok[i], spisok[i-1]  # обрабатываем каждые два, начиная с первого, чтобы корректно
+    i += 2                                           # обработать когда всего один или ноль элементов в списке
 
 print('После обработки имеем:\n', spisok)
