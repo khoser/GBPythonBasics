@@ -32,8 +32,28 @@ if a_b == 'a':
             inext = input('Продолжить? (Y/n)')
             if inext.lower() == 'n':
                 break
-        else:
-            print(el)
+        print(el)
+        i += 1
 
-if a_b == 'b':
-    pass
+elif a_b == 'b':
+    ar = input('Введите ожидаемый массив, разделяя элементы пробелом\n')
+    ar = ar.split(' ')
+    while True:
+        cnt = input('Сколько раз вывести?\n')
+        try:
+            cnt = int(cnt)
+            break
+        except ValueError as e:
+            print('Ожидается число!')
+
+    i = 1
+    for el in cycle(ar):
+        if i > cnt:
+            i = 1
+            inext = input('Продолжить? (Y/n)')
+            if inext.lower() == 'n':
+                break
+        print(el)
+        i += 1
+else:
+    print('Usage: task6.py <a/b>')
